@@ -19,4 +19,15 @@
 
 // }).catch(error => console.log(error))
 
-console.log(123123)
+import express from 'express'
+const path = require('path')
+import * as dotenv from 'dotenv'
+dotenv.config()
+
+const app = express()
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
+app.listen(process.env.PORT, () => {
+    console.log('Express server listening on Port ', process.env.PORT)
+})
+
